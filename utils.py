@@ -4,10 +4,11 @@ import os
 import json
 from dotenv import load_dotenv
 from fpdf import FPDF
+import streamlit as st
 
-# Load API key from the .env file
-load_dotenv()
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+# Load API key from streamlit secrets
+
+genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 
 def extract_text_from_pdf(uploaded_file):
     """
